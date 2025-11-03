@@ -65,6 +65,27 @@ END;
 **Expected Output:**  
 Sum of first 10 natural numbers is: 55
 
+### PROGRAM:
+```
+SET SERVEROUTPUT ON;
+
+DECLARE
+    n NUMBER := 10;       -- Number up to which sum is calculated
+    i NUMBER := 1;        -- Loop counter
+    total_sum NUMBER := 0; -- To store the sum
+BEGIN
+    WHILE i <= n LOOP
+        total_sum := total_sum + i;
+        i := i + 1;
+    END LOOP;
+
+    DBMS_OUTPUT.PUT_LINE('Sum of first ' || n || ' natural numbers is: ' || total_sum);
+END;
+```
+
+### Output:
+<img width="617" height="163" alt="image" src="https://github.com/user-attachments/assets/193b5266-f9a9-4632-9a9c-71ea1962d4dc" />
+
 ---
 
 ## 3. Write a PL/SQL program to generate Fibonacci series
@@ -78,6 +99,33 @@ Sum of first 10 natural numbers is: 55
 **Expected Output:**  
 n = 7  
 Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8
+
+### Program:
+```
+DECLARE
+    n NUMBER := 7;        
+    a NUMBER := 0;        
+    b NUMBER := 1;        
+    c NUMBER;             
+    i NUMBER;             
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('Fibonacci sequence:');
+    DBMS_OUTPUT.PUT(a || ', ' || b);
+
+    FOR i IN 3..n LOOP
+        c := a + b;                  
+        DBMS_OUTPUT.PUT(', ' || c);  
+        a := b;                      
+        b := c;
+    END LOOP;
+
+    DBMS_OUTPUT.NEW_LINE;            
+END;
+/
+
+```
+### Output:
+<img width="458" height="140" alt="image" src="https://github.com/user-attachments/assets/d9b0f411-e6b2-4eab-b7db-607fc35e1b1f" />
 
 ---
 
@@ -105,6 +153,33 @@ Reversed number is 5351
 a = 10, b = 9, c = 15  
 Largest of three number is 15
 
+### Program:
+```
+SET SERVEROUTPUT ON;
+
+DECLARE
+    a NUMBER := 10;
+    b NUMBER := 9;
+    c NUMBER := 15;
+    largest NUMBER;
+BEGIN
+    IF a >= b AND a >= c THEN
+        largest := a;
+    ELSIF b >= a AND b >= c THEN
+        largest := b;
+    ELSE
+        largest := c;
+    END IF;
+
+    DBMS_OUTPUT.PUT_LINE('a = ' || a || ', b = ' || b || ', c = ' || c);
+    DBMS_OUTPUT.PUT_LINE('Largest of three number is ' || largest);
+END;
+```
+### Output: 
+<img width="379" height="124" alt="image" src="https://github.com/user-attachments/assets/b7e997e6-0b9e-451e-9985-af62a2339568" />
+
+
 ## RESULT
 Thus, the PL/SQL programs using variables, conditionals, and loops were executed successfully.
+
 
