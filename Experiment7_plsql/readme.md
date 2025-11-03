@@ -139,6 +139,29 @@ END;
 **Expected Output:**  
 n = 1535  
 Reversed number is 5351
+### Program
+```
+SET SERVEROUTPUT ON;
+
+DECLARE
+    n NUMBER := 1535;       -- Original number
+    original NUMBER := 1535;-- To keep the original number for display
+    reversed NUMBER := 0;   -- To store the reversed number
+    digit NUMBER;           -- To extract each digit
+BEGIN
+    WHILE n > 0 LOOP
+        digit := MOD(n, 10);              -- Get the last digit
+        reversed := reversed * 10 + digit;-- Build the reversed number
+        n := TRUNC(n / 10);               -- Remove the last digit
+    END LOOP;
+
+    DBMS_OUTPUT.PUT_LINE('n = ' || original);
+    DBMS_OUTPUT.PUT_LINE('Reversed number is ' || reversed);
+END;
+```
+### Output: 
+
+<img width="352" height="174" alt="image" src="https://github.com/user-attachments/assets/ef0d2245-3f31-4eb4-8dda-a8fb9ab87a69" />
 
 ---
 
@@ -181,5 +204,6 @@ END;
 
 ## RESULT
 Thus, the PL/SQL programs using variables, conditionals, and loops were executed successfully.
+
 
 
