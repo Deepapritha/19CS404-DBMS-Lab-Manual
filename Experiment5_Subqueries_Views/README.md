@@ -129,87 +129,175 @@ WHERE SALARY>4500;
 
 **Question 4**
 ---
--- Paste Question 4 here
+Write a SQL query to Identify customers whose city is different from the city of the customer with the highest ID
 
-```sql
--- Paste your SQL code below for Question 4
+SAMPLE TABLE: customer
+
+name             type
+---------------  ---------------
+id               INTEGER
+name             TEXT
+city             TEXT
+email            TEXT
+phone            INTEGER
+
+**Program**
+```
+SELECT *
+FROM customer
+WHERE city<>(SELECT city FROM customer ORDER BY id DESC LIMIT 1);
 ```
 
 **Output:**
 
-![Output4](output.png)
+<img width="1269" height="511" alt="image" src="https://github.com/user-attachments/assets/6a670ffe-0279-4f7a-8f1f-ae5c0e745b1f" />
 
 **Question 5**
 ---
--- Paste Question 5 here
+Write a SQL query to retrieve all columns from the CUSTOMERS table for customers whose salary is LESS than $2500.
 
-```sql
--- Paste your SQL code below for Question 5
+Sample table: CUSTOMERS
+
+ID          NAME        AGE         ADDRESS     SALARY
+----------  ----------  ----------  ----------  ----------
+
+1          Ramesh     32              Ahmedabad     2000
+2          Khilan        25              Delhi                 1500
+3          Kaushik      23              Kota                  2000
+4          Chaitali       25             Mumbai            6500
+5          Hardik        27              Bhopal              8500
+6          Komal         22              Hyderabad       4500
+
+7           Muffy          24              Indore            10000
+
+**Program**
 ```
-
+SELECT *
+FROM CUSTOMERS
+WHERE SALARY<2500;
+```
 **Output:**
 
-![Output5](output.png)
+<img width="1232" height="459" alt="image" src="https://github.com/user-attachments/assets/2d477eef-95b5-46ad-a082-e763f6ef93c5" />
 
 **Question 6**
 ---
--- Paste Question 6 here
+Write a SQL query that retrieves the names of students and their corresponding grades, where the grade is equal to the minimum grade achieved in each subject.
 
-```sql
--- Paste your SQL code below for Question 6
+Sample table: GRADES (attributes: student_id, student_name, subject, grade)
+
+<img width="602" height="233" alt="image" src="https://github.com/user-attachments/assets/744604fe-f241-40fa-a14c-570049abe980" />
+
+**Program**
 ```
-
+SELECT student_name, grade
+FROM GRADES
+WHERE (subject,grade) IN (
+    SELECT subject, MIN(grade)
+    FROM GRADES
+    GROUP BY subject
+);
+```
 **Output:**
+<img width="1205" height="434" alt="image" src="https://github.com/user-attachments/assets/14a3db32-d14f-46fb-801e-c27aa175b02e" />
 
-![Output6](output.png)
 
 **Question 7**
 ---
--- Paste Question 7 here
+Write a SQL query that retrieves the names of students and their corresponding grades, where the grade is equal to the maximum grade achieved in each subject.
 
-```sql
--- Paste your SQL code below for Question 7
+Sample table: GRADES (attributes: student_id, student_name, subject, grade)
+
+<img width="602" height="233" alt="image" src="https://github.com/user-attachments/assets/a9c41dcf-5aab-49fd-bfeb-8af0ff0a98f8" />
+
+**Program**
 ```
-
+SELECT student_name, grade
+FROM GRADES
+WHERE (subject, grade) IN (
+    SELECT subject,MAX(grade)
+    FROM GRADES
+    GROUP BY subject
+);
+```
 **Output:**
 
-![Output7](output.png)
+<img width="1216" height="432" alt="image" src="https://github.com/user-attachments/assets/04d9de8b-b4ad-4cd6-b2e3-eeea1f367f9e" />
 
 **Question 8**
 ---
--- Paste Question 8 here
+Write a SQL query to Find employees who have an age less than the average age of employees with incomes over 2.5 Lakh
 
-```sql
--- Paste your SQL code below for Question 8
+Employee Table
+
+name             type
+------------   ---------------
+id                    INTEGER
+name              TEXT
+age                 INTEGER
+city                 TEXT
+income           INTEGER
+
+**Program**
 ```
-
+SELECT *
+FROM Employee
+WHERE age < (
+    SELECT AVG(age)
+    FROM Employee
+    WHERE income>250000 
+);
+```
 **Output:**
 
-![Output8](output.png)
+<img width="1240" height="521" alt="image" src="https://github.com/user-attachments/assets/28258f6b-57c4-4d8f-91ee-8069436f3a7a" />
 
 **Question 9**
 ---
--- Paste Question 9 here
+Write a SQL query that retrieve all the columns from the table "Grades", where the grade is equal to the maximum grade achieved in each subject.
 
-```sql
--- Paste your SQL code below for Question 9
+Sample table: GRADES (attributes: student_id, student_name, subject, grade)
+<img width="602" height="233" alt="image" src="https://github.com/user-attachments/assets/ca5068f5-81cb-4140-8250-892ab9f21cf1" />
+**Program**
+```
+SELECT *
+FROM GRADES
+WHERE (subject, grade) IN (
+    SELECT subject, MAX(grade)
+    FROM Grades
+    GROUP BY subject
+);
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="1237" height="435" alt="image" src="https://github.com/user-attachments/assets/f2d8b3b0-4ae2-40c7-bcf7-2ba2026798f4" />
 
 **Question 10**
 ---
--- Paste Question 10 here
+Write a SQL query to retrieve all columns from the CUSTOMERS table for customers whose salary is greater than $1500.
 
-```sql
--- Paste your SQL code below for Question 10
+Sample table: CUSTOMERS
+
+ID          NAME        AGE         ADDRESS     SALARY
+----------  ----------  ----------  ----------  ----------
+1          Ramesh     32              Ahmedabad     2000
+2          Khilan        25              Delhi                 1500
+3          Kaushik      23              Kota                  2000
+4          Chaitali       25             Mumbai            6500
+5          Hardik        27              Bhopal              8500
+6          Komal         22              Hyderabad       4500
+7           Muffy          24              Indore            10000
+**Program**
+```
+SELECT *
+FROM CUSTOMERS
+WHERE SALARY >1500;
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="1261" height="603" alt="image" src="https://github.com/user-attachments/assets/3246f5be-5c38-42d6-baf2-a5826976a936" />
 
 
 ## RESULT
